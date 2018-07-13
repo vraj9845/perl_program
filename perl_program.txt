@@ -1,0 +1,70 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# This perl program detects errors in Authorised keys.
+# INPUT: finalinput.txt 
+# It counts all the User IDs and Secret Keys found in the custom made text file  "finalinput.txt" .
+# If the number of Secret Keys and User IDs are unequal then it prints a message.
+# OUTPUT: if IDs and Keys are equal --> "Proper Authentication Key!"
+#      if IDs and Keys are unequal --> "Orphaned Autorised ID found."  OR  "Orphaned Autorised KEY found." 
+
+
+# Prerequisite: Before first execution, you have to create a text file 
+# called finalinput.txt and store all your data(that needs to checked) into it.  
+# to execute the file you have to type -->   perl id-key-detect.pl 
+       
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$x=0;
+$y=0;
+$i=1;
+open FH, '<', 'finalinput.txt' or die ("Can't read file: $!");   #reading finalinput.txt
+
+until( eof(FH) ) {
+
+print "Checking line ";
+print $i;
+print "\n"; 
+$row= <FH> ;
+if (($row =~ m/root@/||$row =~ m/SCM/||$row =~ m/egn-prv@/) xor ($row =~ m/from="/)) {
+
+
+    if($row =~ m/root@/||$row =~ m/SCM/||$row =~ m/egn-prv@/) #Checks User ids
+        {
+        $x=$x+1;
+        }
+    
+    
+    if($row =~ m/from="/)                       #Checks IP address
+        {
+        $y=$y+1;
+        }
+    
+}
+
+
+$i=$i+1;
+} #end of until
+
+if($x == $y)
+    {
+    print "Proper Authentication Key!\n";
+    }
+else{
+      if($x > $y)
+             { print "**********************ATTENTION********************************\n";
+            print "Orphaned Autorised ID found.\n";
+            print "This may be due to Data Corruption!!\n";
+            print "\n\n";
+             }
+      if($y > $x)
+            {print "**********************ATTENTION********************************\n";
+           print "Orphaned Autorised KEY found.\n";
+           print "This may be due to Data Corruption!!!!\n";     
+           print "\n\n";
+           }
+   
+   }
+
+
+
+                                                                      #End of program:)
