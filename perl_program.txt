@@ -1,5 +1,4 @@
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # This perl program detects errors in Authorised keys.
 # INPUT: finalinput.txt 
 # It counts all the User IDs and Secret Keys found in the custom made text file  "finalinput.txt" .
@@ -7,12 +6,13 @@
 # OUTPUT: if IDs and Keys are equal --> "Proper Authentication Key!"
 #      if IDs and Keys are unequal --> "Orphaned Autorised ID found."  OR  "Orphaned Autorised KEY found." 
 
-
 # Prerequisite: Before first execution, you have to create a text file 
 # called finalinput.txt and store all your data(that needs to checked) into it.  
 # to execute the file you have to type -->   perl id-key-detect.pl 
-       
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     
+     
+#Thank you Neeta Ann Jacob Ma'am for your help and advice. 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 $x=0;
 $y=0;
